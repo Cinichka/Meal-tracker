@@ -67,8 +67,6 @@ class MealDetailViewController: UIViewController {
 			starFour.alpha = 1
 		default:
 			break
-		}
-		
+		}		
 	}
-
 }

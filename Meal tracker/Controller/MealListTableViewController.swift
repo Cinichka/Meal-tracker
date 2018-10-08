@@ -23,18 +23,17 @@ class MealListTableViewController: UITableViewController {
 		Meal(name: "Блинчик с ветчиной и сыром", photo: UIImage(named: "blinchik_s_vetchinoy_i_syrom")!, notes: "Блинчик с 1 ломтиком ветчины и 1 ломтиком сыра", rating: 0, timestamp: Date()),
 		Meal(name: "Блин Барбекю с бужениной", photo: UIImage(named: "barbekyu_s_buzheninoy_smaller")!, notes: "Блин с бужениной, сыром моцарелла, свежим луком и соусом барбекю.", rating: 0, timestamp: Date())
 	]
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
+	
+	override func viewDidLoad() {
+		super.viewDidLoad()
 		navigationItem.title = "Блины сытные"
-    }
-
-    // MARK: - Table view data source
-
+	}
+	
+	// MARK: - Table view data source
+	
 	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		return meals.count
 	}
-
 	
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! MealListTableViewCell
@@ -43,19 +42,15 @@ class MealListTableViewController: UITableViewController {
 		
 		return cell
 	}
-
 	
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+	// MARK: - Navigation
+	
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		if segue.identifier == "detail" {
 			if let indexPath = tableView.indexPathForSelectedRow {
 				let dvc = segue.destination as! MealDetailViewController
 				dvc.meals = meals[indexPath.row]
 			}
 		}
-    }
-
-
+	}
 }
